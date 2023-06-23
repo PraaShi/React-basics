@@ -1,0 +1,117 @@
+fun{ 
+const heading ='Welcome';
+const count =55;
+const link = "http://www.google.com";
+return(
+ <h1>{ heading }</h1>
+        <p>viewed { count } times</p>
+        <p>{ 'hello' }</p>
+        <p>{ 10 }</p>
+        <p>{ [1,2,3,4] }</p>
+        <p>{ Math.random()*10 }</p>
+)
+
+-----------------------------------------------------20/06/2023
+
+const Home = () => {
+
+    const handleclick = () => {
+        console.log("hello everyone")
+    }
+    return ( 
+        <div className="Home">
+            <h2>Home page</h2>
+            <button onClick = {handleclick}>click me</button>[once i click i will display in the console as hello everyone]
+        </div>
+     );
+}
+ 
+export default Home;
+
+* <button onClick = {handleclick}>click me</button> -- if i give paranthesis here like handleclick() then it will automatically invoke the function
+
+USESTATE HOOK
+
+import { useState } from 'react';
+
+const Home = () => {
+    const [name,setName] = useState('praveena');//reactive
+    const [age,setage] = useState(20);
+
+    const handleclick = () => {
+    setName('shivaani');
+    setage(21);
+    }
+
+    const handleclickhere = (name,e) => {
+        console.log('hello' + ' ' + name,e.target);
+    }
+
+    return ( 
+        <div className="Home">
+            <h2>Home page</h2>
+            <p>{ name } is {age} year old</p>
+            <button onClick = {handleclick}>click me</button>
+            <button onClick = {(e) => {
+                handleclickhere('prashi',e)
+            }}>click me here</button>
+        </div>
+     );
+}
+ 
+export default Home;
+
+-----------------------------------------------------------------21/06/2023
+
+*props = {blogs : .... , title : welcome}
+
+props.blogs
+
+*PROPS should have same number of arguments even when it is used more than one time
+
+*hook useState
+const [blogs, setBlogs] = useState(starting value)
+blogs--variable
+setBlogs--function used when need to make any change
+
+*props
+should pass the arguments inside the < .../>
+
+*useEffect --appears on every new changes
+[] dependency, that not let it repeat on every new ocurance
+[any variable] contains any variable on which it performs its function
+
+
+---------------------------------------------------------------------------22/06/2023
+
+* {blogs && <BlogList blogs={blogs} title = 'HELLO,WELCOME YOU ALL!!'/>} 
+blogs if not null na dha it will check the next one and will be passed to the next page
+
+*useEffect(() => {
+fetch('http://localhost:3000/blogs')
+         .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            console.log(data);
+            setBlogs(data)
+        });
+    }, []);
+
+the fetch here call the server
+
+.then--if fetch call calls the server then the promise(which is the one that contain both data and other relevent informations) will be return inthe res object, which is then got through the data variable
+
+*1000ms=1sec
+
+-------------------------------------------------------------------------------23/06/2023
+
+*custom hook's name should start with use
+
+*COMPONENT(which returns some value) should start  with capital letter
+
+*useEffect which runs first
+
+*custom hook ex:usefetch where its functionalities can be reused
+
+*component ex:<Blocklist> with return.used to reuse the set of html code
