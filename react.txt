@@ -115,3 +115,40 @@ the fetch here call the server
 *custom hook ex:usefetch where its functionalities can be reused
 
 *component ex:<Blocklist> with return.used to reuse the set of html code
+
+*import { BrowserRouter as Router ,Route ,Switch} from 'react-router-dom';
+<Switch>
+        <Route path="/">
+              <Home />
+        </Route>
+        <Route path="/Create">
+              <Create />
+        </Route>
+</Switch>
+
+** if i give /create on the browser the home page which is in the first place will display because /==/Create hence we need to give exact path
+ <Route exact path="/">
+
+*Inorder to connect to the react server instead of connecting to the direct server use use <Link to> instead of <a href>
+import { Link } from 'react-router-dom';
+
+*useParams use to grap parameter that we entered
+
+------------------------------------------------------------24/06/2023 
+IN THE INPUT FIELD:
+
+*onChange invokes when any change occur in the value assigned before
+
+*target.value is use to represent the value typed inside the input field
+ex: onChange={(e) => setBody(e.target.value)
+
+*e.preventDefault is used to prevent from refreshing
+
+
+*useHistory
+ex:history.go(-1) go back to previous page
+history.push('/') where / is home directory
+
+* if <Route path="*"
+              which means that is not suitable in any of the Route in the Switch
+
